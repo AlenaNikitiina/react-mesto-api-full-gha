@@ -1,0 +1,14 @@
+.login__input {
+  padding: 20px 0px 3px 0px;
+  border-style: none;
+  border-bottom: 2px solid rgba(204, 204, 204, 1);
+  background-color: black;
+  color: rgba(204, 204, 204, 1);
+  font-family: Inter, Helvetica Neue, Arial,sans-serif;
+}
+
+@media all and (max-width: 425px) {
+  .login__input {
+    margin: 0 auto;
+  }
+}

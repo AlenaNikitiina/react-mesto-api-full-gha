@@ -1,0 +1,21 @@
+.header__signOut {
+  font-family: 'Inter';
+  font-style: normal;
+  text-align: right;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #A9A9A9;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+@media all and (max-width: 425px) {
+  .header__signOut {
+    font-size: 14px;
+    text-align: center;
+    margin: 0px 10px;
+    padding: 0 0;
+  }
+}

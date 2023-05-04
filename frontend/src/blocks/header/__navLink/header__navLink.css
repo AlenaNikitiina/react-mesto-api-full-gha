@@ -1,0 +1,23 @@
+.header__navLink {
+  display: none;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #FFFFFF;
+}
+
+.header__navLink_active {
+  display: block;
+}
+
+@media all and (max-width: 425px) {
+  .header__navLink {
+    font-size: 14px;
+    text-align: right;
+    margin: 35px 30px 20px auto;
+    padding: 0 0;
+  }
+}

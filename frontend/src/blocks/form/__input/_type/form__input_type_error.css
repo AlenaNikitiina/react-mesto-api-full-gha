@@ -1,0 +1,10 @@
+.form__input_type_error {
+  border-bottom: 1px solid red;
+}
+
+
+@media all and (max-width: 440px) {
+  .form__input_type_error {
+    margin: 3px 22px 0px;
+  }
+}

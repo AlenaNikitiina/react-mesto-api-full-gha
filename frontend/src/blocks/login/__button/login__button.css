@@ -1,0 +1,24 @@
+.login__button {
+  min-width: 260px;
+  width: 358px;
+  height: 50px;
+  margin-top: 140px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 1);
+  background-color: white;
+  cursor: pointer;
+  font-family: Inter, Helvetica Neue, Arial,sans-serif;
+}
+
+@media all and (max-width: 425px) {
+  .login__button {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    margin: 170px auto 0 auto;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+}

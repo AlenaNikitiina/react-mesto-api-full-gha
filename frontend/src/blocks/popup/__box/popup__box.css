@@ -1,0 +1,12 @@
+.popup__box {
+  display: flex;
+  justify-content: center;
+}
+
+@media all and (max-width: 440px) {
+  .popup__box {
+    max-width: 240px;
+    min-height: 299px;
+    margin: 136px auto 0px;
+  }
+}

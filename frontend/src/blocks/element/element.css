@@ -1,0 +1,30 @@
+.element {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  'element__foto element__foto element__foto'
+  'element__title element__like element__like'
+  'element__like-counter element__like-counter element__like-counter';
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  min-height: 361px;
+}
+
+
+/*
+.element {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  'element__foto element__foto element__foto'
+  'element__title element__like element__like-counter'
+  'element__title element__like element__like-counter';
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  min-height: 361px;
+}
+*/
