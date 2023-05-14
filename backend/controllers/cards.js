@@ -23,7 +23,8 @@ const createCard = (req, res, next) => {
 // возвращает все карточки.  GET /cards
 const getCards = (req, res, next) => {
   Card.find({})
-    .then((cards) => res.send({ data: cards }))
+    // .then((cards) => res.send({ data: cards }))
+    .then((cards) => res.send(cards))
     .catch((error) => {
       next(error);
     });

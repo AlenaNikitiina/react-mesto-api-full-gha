@@ -49,7 +49,10 @@ export default function App () {
   function handelLogin( {email, password} ) {
     auth.authorize(email, password)
       .then((data) => {
+        console.log('handelLogin: ', data)
+
         localStorage.setItem("jwt", data.token); // если ок то добавь в localStorage
+        api.setAuthToken(data.token);
         setLoggedIn(true); 
         setUserEmail(email);
         navigate("/", {replace : true} )
@@ -90,9 +93,11 @@ export default function App () {
     if (jwt) {
       auth.checkToken(jwt)
       .then((res) => {
+        console.log('checkToken: ', res)
         if (res) {
           setLoggedIn(true); // авторизуем пользователя
-          setUserEmail(res.data.email) //получаем данные пользователя для хэдера
+          //setUserEmail(res.data.email) //получаем данные пользователя для хэдера
+          setUserEmail(res.email) //получаем данные пользователя для хэдера
           navigate("/", {replace: true}) // перенаправьте
         }
       })
@@ -120,8 +125,10 @@ export default function App () {
     if (loggedIn) {
     Promise.all([ api.getUserInfo(), api.getInitialCards() ])
       .then(( [data, cards] ) => {
+        console.log("api.getUserInfo(), api.getInitialCards()");
         setCurrentUser (data);
         setCards (cards);
+        console.log("finish")
       })
       .catch((err) => {
         console.log(`Ошибка в процессе загрузки данных пользователя и галереи: ${err}`);

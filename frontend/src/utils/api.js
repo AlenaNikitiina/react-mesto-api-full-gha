@@ -13,6 +13,10 @@ class Api {
   constructor({url, headers}) {
     this._url = url;
     this._headers = headers;
+
+    const token = localStorage.getItem("jwt")
+    if (token)
+      this.setAuthToken(token);
   }
 
   // проверка ответа от сервера. Венесено в метод, чтобы не писать одно и тоже
@@ -24,8 +28,18 @@ class Api {
     }
   }
 
+  //
+  setAuthToken (token) {
+    console.log("setAuthToken")
+    this._headers.Authorization = `Bearer ${token}`;
+  }
+
   // 1 Получить информацию о пользователе обо мне
   getUserInfo () {
+    const token = localStorage.getItem('jwt');
+
+    console.log("getUserInfo:", this._headers)
+    console.log("getUserInfo:!!!, token=", token)
     return fetch(this._url + `/users/me`, {
       headers: this._headers,
     })
@@ -34,6 +48,7 @@ class Api {
 
   // 2 Загрузка списка карточек с сервера
   getInitialCards () {
+    console.log('getInitialCards!!')
     return fetch(this._url + `/cards`, {
       headers: this._headers,
     })
@@ -107,9 +122,11 @@ class Api {
 
 //// экзмпляр апи
 const api = new Api({
-  url:"https://mesto.nomoreparties.co/v1/cohort-54", // ссылка на бэкенд
+  //url:"https://mesto.nomoreparties.co/v1/cohort-54", // ссылка на бэкенд
+  url:"http://localhost:3000", // ссылка на бэкенд
   headers: {
-    authorization: '6fda6390-e74a-4775-b246-a9640a3f8173', // токен
+    //authorization: '6fda6390-e74a-4775-b246-a9640a3f8173', // токен
+    //authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVmY2I1N2FhNDQ1NGE4NTNlMTE5YzEiLCJpYXQiOjE2ODQwMDA1NzMsImV4cCI6MTY4NDYwNTM3M30.t6Cx4erPdNIoPZghQw-cIbbI6qhN0hY90J1a5IJHRcI',
     "Content-type": 'application/json'
   }
 }); 

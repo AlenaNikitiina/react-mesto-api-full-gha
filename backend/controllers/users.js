@@ -44,6 +44,7 @@ const createUser = (req, res, next) => {
 
 // возвращает текущего пользователя  GET('users/me')
 const getCurrentUserMe = (req, res, next) => {
+  // console.log('getCurrentUserMe: ', req);
   User.findById(req.user._id)
     .orFail(() => {
       throw new NotFoundError('Пользователь по указанному _id не найден');
