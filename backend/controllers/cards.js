@@ -37,6 +37,7 @@ const likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } }, // добавить _id в массив, если его там нет
     { new: true },
   )
+    .populate(['likes', 'owner'])
     .orFail(() => {
       throw new NotFoundError('Пользователь с некорректным id');
     })
@@ -44,6 +45,7 @@ const likeCard = (req, res, next) => {
       res.send(card); // send({ data: card })
     })
     .catch((error) => {
+      console.log("have error", error);
       if (error.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные для постановки лайка.'));
       } else {
@@ -59,10 +61,12 @@ const dislikeCard = (req, res, next) => {
     { $pull: { likes: req.user._id } }, // убрать _id из массива
     { new: true },
   )
+    .populate(['likes', 'owner'])
     .orFail(() => {
       throw new NotFoundError('Пользователь с некорректным id');
     })
-    .then((like) => res.send({ data: like }))
+    // .then((like) => res.send({ data: like }))
+    .then((like) => res.send(like))
     .catch((error) => {
       if (error.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные при снятии лайка.'));

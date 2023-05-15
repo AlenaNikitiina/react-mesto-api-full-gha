@@ -72,6 +72,7 @@ userSchema.statics.findUserByCredentials = function (email, password) {
 // поэтому обратимся к нему через ключевое слово this: (не должна быть стрелочной
 
 // module.exports = mongoose.model('User', userSchema);
-const User = mongoose.model('User', userSchema);
+// const User = mongoose.model('User', userSchema);
+const User = mongoose.model('user', userSchema);
 
 module.exports = User;

@@ -36,10 +36,6 @@ class Api {
 
   // 1 Получить информацию о пользователе обо мне
   getUserInfo () {
-    const token = localStorage.getItem('jwt');
-
-    console.log("getUserInfo:", this._headers)
-    console.log("getUserInfo:!!!, token=", token)
     return fetch(this._url + `/users/me`, {
       headers: this._headers,
     })

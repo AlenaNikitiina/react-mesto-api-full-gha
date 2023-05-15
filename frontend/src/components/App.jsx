@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -93,10 +93,8 @@ export default function App () {
     if (jwt) {
       auth.checkToken(jwt)
       .then((res) => {
-        console.log('checkToken: ', res)
         if (res) {
           setLoggedIn(true); // авторизуем пользователя
-          //setUserEmail(res.data.email) //получаем данные пользователя для хэдера
           setUserEmail(res.email) //получаем данные пользователя для хэдера
           navigate("/", {replace: true}) // перенаправьте
         }
@@ -111,7 +109,8 @@ export default function App () {
   useEffect(() => {
     checkToken();
   }, [] ); // ток один раз при первом рендеринге
-
+  // или написать loggedIn
+  
   // кнопка выйти / разлогиниться
   function signOut() {
     localStorage.removeItem('jwt'); // удалить
@@ -125,10 +124,8 @@ export default function App () {
     if (loggedIn) {
     Promise.all([ api.getUserInfo(), api.getInitialCards() ])
       .then(( [data, cards] ) => {
-        console.log("api.getUserInfo(), api.getInitialCards()");
         setCurrentUser (data);
         setCards (cards);
-        console.log("finish")
       })
       .catch((err) => {
         console.log(`Ошибка в процессе загрузки данных пользователя и галереи: ${err}`);
@@ -247,16 +244,17 @@ export default function App () {
   // поставить и снять лайк
   function handlePutLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id); // Снова проверяем, есть ли уже лайк на этой карточке
-  
+
     if (!isLiked) {
       api.addLike(card._id, !isLiked) // Отправляем запрос в API и получаем обновлённые данные карточки
         .then((newCard) => {
+          console.log('1111111', card._id);
           setCards((state) => 
             state.map((c) => (c._id === card._id ? newCard : c))
           );
         })
         .catch((err) => {
-          console.log("Не получилось поставить like: ", err);
+          console.log("Не получилось поставить jjj like: ", err);
         });
     } else {
       api.deleteLike(card._id, !isLiked)
