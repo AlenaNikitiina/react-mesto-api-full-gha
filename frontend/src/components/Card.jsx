@@ -5,7 +5,8 @@ import { useContext } from "react";
 export default function Card ( {card, name, link, likes, onCardClick, onCardLike, onClickDeleteCard} ) {
   const currentUser = useContext(CurrentUserContext);
   
-  const isOwn = card.owner._id === currentUser._id; // мы ли владельцы текущей карточки ?
+  //const isOwn = card.owner._id === currentUser._id; // мы ли владельцы текущей карточки ?
+  const isOwn = card.owner === currentUser._id || card.owner._id === currentUser._id; // мы ли владельцы текущей карточки ?
 
   const isLiked = card.likes.some(i => i._id === currentUser._id); // есть ли у карточки лайк, поставленный текущим пользователем ?
   const cardLikeButton = ( `element__like 

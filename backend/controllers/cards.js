@@ -23,6 +23,7 @@ const createCard = (req, res, next) => {
 // возвращает все карточки.  GET /cards
 const getCards = (req, res, next) => {
   Card.find({})
+    .populate(['likes', 'owner'])
     // .then((cards) => res.send({ data: cards }))
     .then((cards) => res.send(cards))
     .catch((error) => {
@@ -45,7 +46,6 @@ const likeCard = (req, res, next) => {
       res.send(card); // send({ data: card })
     })
     .catch((error) => {
-      console.log("have error", error);
       if (error.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные для постановки лайка.'));
       } else {
@@ -79,6 +79,7 @@ const dislikeCard = (req, res, next) => {
 // удаляет карточку по идентификатору.  DELETE /cards/:cardId
 const deleteCard = (req, res, next) => {
   Card.findById(req.params.cardId)
+    // .populate(['likes', 'owner'])
     .then((card) => {
       if (!card) {
         throw new NotFoundError('Карточка с указанным _id не найдена.');
