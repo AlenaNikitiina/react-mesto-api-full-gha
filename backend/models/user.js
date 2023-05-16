@@ -71,8 +71,8 @@ userSchema.statics.findUserByCredentials = function (email, password) {
 // которому передадим на вход email. Метод findOne принадлежит модели User
 // поэтому обратимся к нему через ключевое слово this: (не должна быть стрелочной
 
-// module.exports = mongoose.model('User', userSchema);
-// const User = mongoose.model('User', userSchema);
+// module.exports = mongoose.model('User', userSchema); или так
+// const User = mongoose.model('User', userSchema); перестало работать
 const User = mongoose.model('user', userSchema);
 
 module.exports = User;

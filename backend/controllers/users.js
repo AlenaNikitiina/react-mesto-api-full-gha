@@ -101,7 +101,7 @@ const updateUserAvatar = (req, res, next) => {
     });
 };
 
-// обновляет профиль.  PATCH /users/me
+// обновляет профиль (имя,о себе).  PATCH /users/me
 const updateUser = (req, res, next) => {
   const { name, about } = req.body;
 
@@ -109,7 +109,7 @@ const updateUser = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь с некорректным id');
     })
-    .then((users) => res.send({ data: users }))
+    .then((users) => res.send(users))
     .catch((error) => {
       // console.log("name error:", error.name, ", code:", error.statusCode);
       if (error.name === 'CastError' || error.name === 'ValidationError') {
@@ -134,12 +134,6 @@ const login = (req, res, next) => {
       next(error);
     });
 };
-
-/*
-.catch(() => {
-  next(new UnauthorizedError('Необходима авторизация')); // неправильных почте и пароле
-});
-*/
 
 //
 module.exports = {

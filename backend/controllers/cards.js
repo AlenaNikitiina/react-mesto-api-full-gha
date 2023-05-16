@@ -24,7 +24,6 @@ const createCard = (req, res, next) => {
 const getCards = (req, res, next) => {
   Card.find({})
     .populate(['likes', 'owner'])
-    // .then((cards) => res.send({ data: cards }))
     .then((cards) => res.send(cards))
     .catch((error) => {
       next(error);

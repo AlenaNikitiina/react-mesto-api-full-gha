@@ -9,6 +9,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import PopupWithSubmmitDelete from "./PopupWithSubmmitDelete";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
+
 // регистрация и авторизация
 import { Route, Routes, useNavigate } from "react-router-dom";
 import ProtectedRoute from './ProtectedRoute';
@@ -49,8 +50,6 @@ export default function App () {
   function handelLogin( {email, password} ) {
     auth.authorize(email, password)
       .then((data) => {
-        console.log('handelLogin: ', data)
-
         localStorage.setItem("jwt", data.token); // если ок то добавь в localStorage
         api.setAuthToken(data.token);
         setLoggedIn(true); 
@@ -248,7 +247,6 @@ export default function App () {
     if (!isLiked) {
       api.addLike(card._id, !isLiked) // Отправляем запрос в API и получаем обновлённые данные карточки
         .then((newCard) => {
-          console.log('1111111', card._id);
           setCards((state) => 
             state.map((c) => (c._id === card._id ? newCard : c))
           );
