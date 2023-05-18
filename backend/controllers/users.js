@@ -6,7 +6,8 @@ const NotFoundError = require('../errors/NotFoundError'); // 404
 const BadRequestError = require('../errors/BadRequestError'); // 400
 const ConflictError = require('../errors/ConflictError'); // 409
 
-const { JWT_SECRET } = require('../config');
+const { NODE_ENV, JWT_SECRET } = process.env;
+// const { JWT_SECRET } = require('../config');
 
 // создаёт пользователя.  POST('/users', createUser) содержит body
 const createUser = (req, res, next) => {
@@ -127,7 +128,7 @@ const login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' }); // создадим токен
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' }); // создадим токен
       res.send({ token }); // аутентификация успешна
     })
     .catch((error) => {
