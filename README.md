@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.101.167
+IP-адрес <158.160.101.167>
 
 Frontend https://nikitina.nomoredomains.monster
 
