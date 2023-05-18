@@ -10,7 +10,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const handleErrors = require('./middlewares/handleErrors');
 
 // const { PORT, SERVER_ADDRESS } = require('./config');
-const { PORT, SERVER_ADDRESS } = process.env;
+const { PORT = 3000, SERVER_ADDRESS } = process.env;
 const router = require('./routes/index'); // тут все роуты
 
 // создаем приложение
