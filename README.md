@@ -1,6 +1,6 @@
 [![Tests](https://github.com/yandex-praktikum/react-mesto-api-full-gha/actions/workflows/tests.yml/badge.svg)](https://github.com/yandex-praktikum/react-mesto-api-full-gha/actions/workflows/tests.yml)
 # react-mesto-api-full
-Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`. 
+Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`.
 
 
 Адрес репозитория: https://github.com/AlenaNikitiina/react-mesto-api-full-gha.git
@@ -13,14 +13,15 @@ Frontend https://nikitina.nomoredomains.monster
 
 Backend https://api.nikitina.nomoredomains.monster
 
-Ссылка на макет в Figma https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?type=design&node-id=0-1
-Ссылка на макет регистрации и авторизации https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/JavaScript.-Sprint-12?type=design&node-id=0-1
+Ссылка на макет в Figma [Посмотреть](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?type=design&node-id=0-1)
+Ссылка на макет регистрации и авторизации [Посмотреть](https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/JavaScript.-Sprint-12?type=design&node-id=0-1)
 
-✅ Сайт является адаптивно-отзывчивым. Адаптирован под экраны с шириной 320 и 1280 пикселей(медиазапросы и резиновая верстка)
-✅ БЭМ-подход. организация файловой структуры Nested
-✅ Использвуются Flexbox и Grid верстка
-✅ Возможность загружать данные на сервер( при обновлении страницы, данные сохраняются) ✅ Регистрация, авторизация и аутентификация пользователя
-✅ ReactRoutes 
-✅ Сервер (Node.js) 
-✅ БД (MongoDB)
 
+* Сайт является адаптивно-отзывчивым. Адаптирован под экраны с шириной 320 и 1280 пикселей(медиазапросы и резиновая верстка)
+* БЭМ-подход. Организация файловой структуры Nested
+* Используется Flexbox и Grid верстка
+* Регистрация, авторизация и аутентификация пользователя
+* Возможность загружать данные на сервер (при обновлении страницы, данные сохраняются)
+* ReactRoutes
+* Сервер (Node.js)
+* База данных (MongoDB)
