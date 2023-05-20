@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Card = require('../models/card'); // модель
 
 const NotFoundError = require('../errors/NotFoundError'); // 404
@@ -12,7 +13,8 @@ const createCard = (req, res, next) => {
   Card.create({ name, link, owner })
     .then((card) => res.status(201).send(card))
     .catch((error) => {
-      if (error.name === 'ValidationError') {
+      if (error instanceof mongoose.Error.ValidationError) {
+      // if (error.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при создании карточки.'));
       } else {
         next(error);
@@ -45,7 +47,8 @@ const likeCard = (req, res, next) => {
       res.send(card); // send({ data: card })
     })
     .catch((error) => {
-      if (error.name === 'CastError') {
+      if (error instanceof mongoose.Error.CastError) {
+      // if (error.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные для постановки лайка.'));
       } else {
         next(error);
@@ -66,7 +69,8 @@ const dislikeCard = (req, res, next) => {
     })
     .then((like) => res.send(like))
     .catch((error) => {
-      if (error.name === 'CastError') {
+      if (error instanceof mongoose.Error.CastError) {
+      // if (error.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные при снятии лайка.'));
       } else {
         next(error);
@@ -94,7 +98,8 @@ const deleteCard = (req, res, next) => {
       }
     })
     .catch((error) => {
-      if (error.name === 'CastError') {
+      if (error instanceof mongoose.Error.CastError) {
+      // if (error.name === 'CastError') {
         next(new BadRequestError('Карточка с указанным _id не найдена.'));
       } else {
         next(error);
