@@ -104,8 +104,8 @@ class Api {
 
 //// экзмпляр апи
 const api = new Api({
-  url:"http://localhost:3000", // ссылка на бэкенд
-  // url:"https://api.nikitina.nomoredomains.monster", // ссылка на бэкенд
+  // url:"http://localhost:3000", // ссылка на бэкенд
+  url:"https://api.nikitina.nomoredomains.monster", // ссылка на бэкенд
   headers: {
     "Content-type": 'application/json'
   }
