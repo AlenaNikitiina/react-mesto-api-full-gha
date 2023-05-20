@@ -10,7 +10,7 @@ const createCard = (req, res, next) => {
   const owner = req.user._id;
 
   Card.create({ name, link, owner })
-    .then((card) => res.status(200).send(card))
+    .then((card) => res.status(201).send(card))
     .catch((error) => {
       if (error.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при создании карточки.'));
@@ -64,7 +64,6 @@ const dislikeCard = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь с некорректным id');
     })
-    // .then((like) => res.send({ data: like }))
     .then((like) => res.send(like))
     .catch((error) => {
       if (error.name === 'CastError') {
@@ -78,7 +77,6 @@ const dislikeCard = (req, res, next) => {
 // удаляет карточку по идентификатору.  DELETE /cards/:cardId
 const deleteCard = (req, res, next) => {
   Card.findById(req.params.cardId)
-    // .populate(['likes', 'owner'])
     .then((card) => {
       if (!card) {
         throw new NotFoundError('Карточка с указанным _id не найдена.');

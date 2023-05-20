@@ -21,14 +21,14 @@ cardsRouter.get('/cards', getCards);
 // удаляет карточку по идентификатору
 cardsRouter.delete('/cards/:cardId', celebrate({
   params: Joi.object().keys({
-    cardId: Joi.string().hex().length(24),
+    cardId: Joi.string().hex().length(24).required(),
   }),
 }), deleteCard);
 
 // поставить лайк
 cardsRouter.put('/cards/:cardId/likes', celebrate({
   params: Joi.object().keys({
-    cardId: Joi.string().hex().length(24),
+    cardId: Joi.string().hex().length(24).required(),
   }),
 }), likeCard);
 
