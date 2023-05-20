@@ -7,17 +7,18 @@
 
 ## Ссылки на проект
 
-IP 158.160.101.167
+IP address 158.160.101.167
 
 Frontend https://nikitina.nomoredomains.monster
 
 Backend https://api.nikitina.nomoredomains.monster
 
 Ссылка на макет в Figma [Посмотреть](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?type=design&node-id=0-1)
+
 Ссылка на макет регистрации и авторизации [Посмотреть](https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/JavaScript.-Sprint-12?type=design&node-id=0-1)
 
 
-* Сайт является адаптивно-отзывчивым. Адаптирован под экраны с шириной 320 и 1280 пикселей(медиазапросы и резиновая верстка)
+* Сайт является адаптивно-отзывчивым. Адаптирован под экраны с шириной 320 и 1280 пикселей (медиазапросы и резиновая верстка)
 * БЭМ-подход. Организация файловой структуры Nested
 * Используется Flexbox и Grid верстка
 * Регистрация, авторизация и аутентификация пользователя
