@@ -1,7 +1,7 @@
 [![Tests](https://github.com/yandex-praktikum/react-mesto-api-full-gha/actions/workflows/tests.yml/badge.svg)](https://github.com/yandex-praktikum/react-mesto-api-full-gha/actions/workflows/tests.yml)
 # react-mesto-api-full
 
-__Описание проекта__
+## Описание проекта
 
 Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`.
 
@@ -19,7 +19,7 @@ Backend https://api.nikitina.nomoredomains.monster
 Ссылка на макет регистрации и авторизации [Посмотреть](https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/JavaScript.-Sprint-12?type=design&node-id=0-1)
 ___
 
-__Функциональность__
+## Функциональность
 
 * Сайт является адаптивно-отзывчивым. Адаптирован под экраны с шириной 320 и 1280 пикселей (медиазапросы и резиновая верстка)
 * БЭМ-подход. Организация файловой структуры Nested
@@ -30,7 +30,7 @@ __Функциональность__
 * Сервер (Node.js)
 * База данных (MongoDB)
 
-__Запуск__
+## Запуск
 
 npm i - установить зависимости (отдельно - в папке frontend и backend)
 npm run dev - запустить приложение в режиме разработчика в папке backend
