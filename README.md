@@ -36,3 +36,5 @@ Backend https://api.nikitina.nomoredomains.monster
 * npm i - установить зависимости (отдельно - в папке frontend и backend)
 * npm run dev - запустить приложение в режиме разработчика в папке backend
 * npm run start - запустить приложение в режиме разработчика в папке frontend
+
+Проект прошел код ревью и завершен.
